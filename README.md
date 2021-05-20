@@ -16,3 +16,5 @@ Back-End Programmer   : Muhammad Iman Nur Izza (A11.2018.10877)
 
 App Programmer        : Moh Nuriski Akbar (A11.2018.11426)
 
+Link Github : https://github.com/NuriskiAkbar/PPL4612SC.git
+
