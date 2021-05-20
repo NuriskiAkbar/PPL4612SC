@@ -1,5 +1,6 @@
 # PPL4612SC
 Folder project PPL kelas 4612SC<br>
+Judul Projek : Sistem Manajemen Menu
 Nama Tim : Tim Sehat Sukses Selalu<br>
 KELOMPOK 6
 
