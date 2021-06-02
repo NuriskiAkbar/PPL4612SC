@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="style.css">
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart', 'line']});
+        google.charts.setOnLoadCallback(drawLogScales);
+
+        function drawLogScales() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'X');
+            data.addColumn('number', 'Total');
+
+            data.addRows([
+                [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+                [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+                [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+                [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+                [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+                [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+                [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+                [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+                [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+                [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+                [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+                [66, 70], [67, 72], [68, 75], [69, 80], [70,20]
+            ]);
+
+            var options = {
+                title: 'Total Penjualan',
+                hAxis: {
+                title: 'Days',
+                // logScale: true
+                },
+                vAxis: {
+                title: 'Total',
+                // logScale: false
+                },
+                colors: ['#2699FB']
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+            }
+        </script>
+    </head>
+
+    <body>
+        <!-- nabvar -->
+        <header>
+            <nav class="blue no-shadow">
+                <div class="nav-wrapper container">
+                    <a href="#" class="brand-logo">Admin</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                        <i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="table_page.html">ORDER</a></li>
+                        <li><a href="#">GRAPH</a></li>
+                        <li><a href="#">MORE</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="table_page.html">ORDER</a></li>
+                <li><a href="#">GRAPH</a></li>
+                <li><a href="#">MORE</a></li>
+            </ul>
+        </header>
+        <main>
+
+            <div class="container">
+                <div class="rowtable white pd-btm">
+                    <div class="cntnr">
+                        <p class="judultable abu">Charts</p>
+                        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                    
+                    
+                        <a class="waves-effect waves-light btn blue kanan">export</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/sample.js"></script>
+
+        
+    </body>
+  </html>
