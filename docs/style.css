@@ -60,6 +60,10 @@ nav .brand-logo{
     padding-top: 1.5rem;
 }
 
+/* .card{
+    margin: 20px 0;
+} */
+
 .card-image .card-title{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -68,6 +72,15 @@ nav .brand-logo{
 .card .card-action .pinggir{
     float: right;
     margin: 0;
+    cursor: pointer;
+}
+
+/* .card .card-action a:not(:nth-child(1)){
+    margin-right: 0;
+} */
+
+#del{
+    margin-right: 0;
 }
 
 .card .card-image .card-title.pgn{
@@ -86,6 +99,12 @@ nav .brand-logo{
     position: relative;
     padding-top: 75%;
     overflow: hidden;
+}
+
+.card-content{
+    height: 150px;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .pd-btm{
@@ -155,11 +174,9 @@ ul.paginasi{
     background-color: #2699FB;
 }
 
-/* page */
-
+/* chart page */
 .cntnr{
     width: 90%;
-    
 }
 
 @media only screen and (max-width: 768px) {
