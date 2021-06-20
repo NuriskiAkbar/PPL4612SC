@@ -10,9 +10,10 @@ var firebaseConfig = {
     appId: "1:412262375065:web:af929785b8e1c873e5e208",
     measurementId: "G-CQ907QF5E6"
 };
+
 // Initialize Firebase
 if(!firebase.apps.length){
-firebase.initializeApp(firebaseConfig);
+fb = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 }
 
@@ -65,6 +66,7 @@ const kirim = () => {
     var date = new Date().getTime();
     file = file.files[0];
     let nameFile = `${date}-${file.name}`;
+    let kat = document.getElementById("kategori").value.split(',');
 
     var up = storage.ref("product").child(nameFile).put(file);
     up.on('state_changed', snapshot => {}, error => { console.log(error) }, () => {
@@ -75,12 +77,13 @@ const kirim = () => {
                 iden: date,
                 nama: document.getElementById("nama").value,
                 harga: document.getElementById("harga").value,
+                kategori: kat,
                 deskripsi: document.getElementById("deskripsi").value
             }
             console.log(upl)
-                database.ref(`/makanan/${date}`).set(upl).then(()=>{
+                database.ref(`/admin/menu/${date}`).set(upl).then(()=>{
                     M.toast({html: 'Upload Berhasil', classes:'blue'})
-                    window.open("/admin/","_self");
+                    window.open("/PPL4612SC","_self");
                 }) //admin/docs/index.html
         })
       
@@ -91,7 +94,7 @@ const kirim = () => {
 //read
 //assign this to a function, so this function only can be triggered at spesific page
 const fetchData = ()=>{
-    database.ref("/makanan").on("value", (dtman)=>{
+    database.ref("/admin/menu").on("value", (dtman)=>{
         let tampil = dtman.val();
         var card = document.getElementById("card-menu");
         let dataht = "";
@@ -128,20 +131,20 @@ const fetchData = ()=>{
 //delete
 function hapus(key, nameFile){
 
-    database.ref("/makanan/"+key).remove();
+    database.ref("/admin/menu/"+key).remove();
     storage.ref("product").child(nameFile).delete();
 }
 // database.ref("/makanan").remove();
 
 //edit data
 function edit(key){
-database.ref("/makanan/"+key).on("value", (datae)=>{
+database.ref("/admin/menu/"+key).on("value", (datae)=>{
   let tampl = datae.val();
     
     document.getElementById("nama").value = tampl.nama;
     document.getElementById("harga").value = tampl.harga;
     document.getElementById("deskripsi").value = tampl.deskripsi;
-
+    document.getElementById("kategori").value = tampl.kategori;
     //untuk menyimpan  key sementara
     document.getElementById("editNow").innerHTML = key;
     console.log(key);
@@ -152,10 +155,12 @@ database.ref("/makanan/"+key).on("value", (datae)=>{
 //trigger edit data
 function tombolEdit(){
 let key = document.getElementById("editNow").innerHTML;
-database.ref(`/makanan/${key}`).update({
+let kat = document.getElementById("kategori").value.split(',');
+database.ref(`/admin/menu/${key}`).update({
     iden: key,
     nama: document.getElementById("nama").value,
     harga: document.getElementById("harga").value,
+    kategori: kat,
     deskripsi: document.getElementById("deskripsi").value
 }).then(document.getElementById("editNow").innerHTML = "");
 }
@@ -168,9 +173,11 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() =
     return firebase.auth().signInWithEmailAndPassword(email, password)
     .then(success => {
     console.log("Hey");
+    window.open("/PPL4612SC/docs/index.html","_self");
     })
     .catch(error => {
     console.log("Gagal");
+    window.alert("Email atau password yang dimasukkan salah!");
     })
 }).catch(error => {
     console.log(error.message);
@@ -191,9 +198,9 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() =
 
 //logout
 function logout(){
-firebase.auth().signOut().then(success =>{
-    console.log("logout");
-})
-
+    firebase.auth().signOut().then(success =>{
+        console.log("logout");
+        window.open("/PPL4612SC/docs/login.html","_self");
+    })
 }
 
