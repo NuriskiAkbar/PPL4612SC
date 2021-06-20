@@ -173,7 +173,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() =
     return firebase.auth().signInWithEmailAndPassword(email, password)
     .then(success => {
     console.log("Hey");
-    window.open("/PPL4612SC/docs/index.html","_self");
+    window.open("/PPL4612SC/index.html","_self");
     })
     .catch(error => {
     console.log("Gagal");
@@ -200,7 +200,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() =
 function logout(){
     firebase.auth().signOut().then(success =>{
         console.log("logout");
-        window.open("/PPL4612SC/docs/login.html","_self");
+        window.open("/PPL4612SC/login.html","_self");
     })
 }
 
