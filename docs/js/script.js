@@ -196,6 +196,15 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(() =
 // });
 }
 
+const adminLogin = ()=>{
+    let urlParam = new URLSearchParams(window.location.search);
+
+    if(!urlParam.has("email")){
+        window.open("/PPL4612SC/login.html","_self");
+    }
+    let id = urlParam.get("email");
+}
+
 //logout
 function logout(){
     firebase.auth().signOut().then(success =>{
