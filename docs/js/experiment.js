@@ -102,7 +102,7 @@ const kirim = () => {
             database.ref('/admin/menu/'+kat).child(katId).set(upl).then(() => {
                 M.toast({ html: 'Upload Berhasil', classes: 'blue' })
                 window.open("/PPL4612SC", "_self");
-            }) //admin/docs/index.html
+            }) //admin/docs/index.html || +kat+'/set/'+katId
         })
 
     })
@@ -113,38 +113,87 @@ src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
 //read
 //assign this to a function, so this function only can be triggered at spesific page
 const fetchData = () => {
-    database.ref("/admin/menu/").on("value", (dtman) => {
-        let tampil = dtman.val();
-        var card = document.getElementById("card-menu");
-        let dataht = "";
-        // var kunci = document.getElementById("identitas").value = dtman.val().iden;
-        for (key in tampil) {
-            let a = tampil[key].nama;
-            let b = rupiah(tampil[key].harga);
-            let c = tampil[key].deskripsi;
-            let d = tampil[key].iden;
-            let e = tampil[key].urlImg;
-            let f = tampil[key].docName;
-            dataht += `<div class="col l4 s12 m6">
-                        <div class="card">
-                            <div class="card-image bluish">
-                                <img src="${e}">
-                                <span class="card-title pgn right-align">Rp. ${b}</span>
+    
+    let tombolFood = document.getElementById("tombol-food");
+    let tombolDrink = document.getElementById("tombol-drink");
+    tombolFood.addEventListener("click", function(){
+        
+        database.ref("/admin/menu/"+tombolFood.innerText).on("value", (dtman) => {
+            let tampil = dtman.val();
+            console.log(tampil);
+            var card = document.getElementById("card-menu");
+            let dataht = "";
+            // var kunci = document.getElementById("identitas").value = dtman.val().iden;
+            for (key in tampil) {
+                let a = tampil[key].nama;
+                let b = rupiah(tampil[key].harga);
+                let c = tampil[key].deskripsi;
+                let d = tampil[key].iden;
+                let e = tampil[key].urlImg;
+                let f = tampil[key].docName;
+                dataht += `<div class="col l4 s12 m6">
+                            <div class="card">
+                                <div class="card-image bluish">
+                                    <img src="${e}">
+                                    <span class="card-title pgn right-align">Rp. ${b}</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">${a}</span>
+                                    <p>${c}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
+                                    <a id="del" class="pinggir"  onclick="hapus(${key}, '${f}')">DELETE</a>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <span class="card-title">${a}</span>
-                                <p>${c}</p>
-                            </div>
-                            <div class="card-action">
-                                <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
-                                <a id="del" class="pinggir"  onclick="hapus(${key}, '${f}')">DELETE</a>
-                            </div>
-                        </div>
-                    </div>`;
-            console.log(card);
-        }
-        card.innerHTML = dataht
+                        </div>`;
+                console.log(card);
+            }
+            card.innerHTML = dataht
+        })
+    
     })
+
+    tombolDrink.addEventListener("click", function(){
+        
+        database.ref("/admin/menu/"+tombolDrink.innerText).on("value", (dtman) => {
+            let tampil = dtman.val();
+            console.log(tampil);
+            var card = document.getElementById("card-menu");
+            let dataht = "";
+            // var kunci = document.getElementById("identitas").value = dtman.val().iden;
+            for (key in tampil) {
+                let a = tampil[key].nama;
+                let b = rupiah(tampil[key].harga);
+                let c = tampil[key].deskripsi;
+                let d = tampil[key].iden;
+                let e = tampil[key].urlImg;
+                let f = tampil[key].docName;
+                dataht += `<div class="col l4 s12 m6">
+                            <div class="card">
+                                <div class="card-image bluish">
+                                    <img src="${e}">
+                                    <span class="card-title pgn right-align">Rp. ${b}</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">${a}</span>
+                                    <p>${c}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
+                                    <a id="del" class="pinggir"  onclick="hapus(${key}, '${f}')">DELETE</a>
+                                </div>
+                            </div>
+                        </div>`;
+                console.log(card);
+            }
+            card.innerHTML = dataht
+        })
+    
+    })
+
+    
+    
 }
 // function tombolHapus(){
 //     swal({
