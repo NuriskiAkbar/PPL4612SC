@@ -65,6 +65,7 @@ nav ul a{
 
 .isi-button .tombol{
   margin: 0 auto 10px auto;
+  text-transform: none;
 }
 
 /* card */
