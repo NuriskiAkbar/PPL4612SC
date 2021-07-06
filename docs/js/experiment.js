@@ -113,11 +113,12 @@ src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
 //read
 //assign this to a function, so this function only can be triggered at spesific page
 const fetchData = () => {
-    
     let tombolFood = document.getElementById("tombol-food");
     let tombolDrink = document.getElementById("tombol-drink");
+
+
     tombolFood.addEventListener("click", function(){
-        
+        let child = tombolFood.innerText;
         database.ref("/admin/menu/"+tombolFood.innerText).on("value", (dtman) => {
             let tampil = dtman.val();
             console.log(tampil);
@@ -155,7 +156,7 @@ const fetchData = () => {
     })
 
     tombolDrink.addEventListener("click", function(){
-        
+        let child = tombolDrink.innerText;
         database.ref("/admin/menu/"+tombolDrink.innerText).on("value", (dtman) => {
             let tampil = dtman.val();
             console.log(tampil);
