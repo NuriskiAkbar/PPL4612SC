@@ -1,261 +1,261 @@
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .no-shadow{
-    box-shadow: unset;
+  box-shadow: unset;
 }
 
 .no-border{
-    border: 0;
+  border: 0;
 }
 
 .kanan{
-    float: right;
+  float: right;
 }
 
 body{
-    background-color: #EEEEEE;
+  background-color: #EEEEEE;
 }
 
 .blue{
-    background-color: #2699FB;
+  background-color: #2699FB;
 }
 
 .white{
-    background-color: #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 .bluish{
-    background-color:#7FC4FD;
+  background-color:#7FC4FD;
 }
 .abu{
-    color: #95989A;
+  color: #95989A;
 }
 /* #EEEEEE,  #7FC4FD, #95989A, #2699FB*/
 
 /* navbar */
 nav .brand-logo{
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 nav ul a{
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
 
 .atas-tombol{
-    position: fixed;
-    width: 70%;
-    right: 5vw;
-    bottom: 15vh;
+  position: fixed;
+  width: 70%;
+  right: 5vw;
+  bottom: 15vh;
 }
 
 .add{
-    position: absolute;
-    right: 0;
-    margin: 10px;
+  position: absolute;
+  right: 0;
+  margin: 10px;
 }
 
 /* card */
 .container90{
-    width: 90%;
-    margin: auto;
-    /* margin-top: 5rem; */
-    padding-top: 1.5rem;
+  width: 90%;
+  margin: auto;
+  /* margin-top: 5rem; */
+  padding-top: 1.5rem;
 }
 
 /* .card{
-    margin: 20px 0;
+  margin: 20px 0;
 } */
 
 .card-image .card-title{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 .card .card-action .pinggir{
-    float: right;
-    margin: 0;
-    cursor: pointer;
+  float: right;
+  margin: 0;
+  cursor: pointer;
 }
 
 /* .card .card-action a:not(:nth-child(1)){
-    margin-right: 0;
+  margin-right: 0;
 } */
 
 #del{
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .card .card-image .card-title.pgn{
-    right: 0;
-    left: none;
+  right: 0;
+  left: none;
 }
 
 .card .card-image img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card .card-image{
-    position: relative;
-    padding-top: 75%;
-    overflow: hidden;
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
 }
 
 .card-content{
-    height: 150px;
-    overflow-y: scroll;
-    scrollbar-width: none;
+  height: 150px;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .pd-btm{
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 /* search bar */
 .search{
-    width: 50%;
-    height: 7vh;
+  width: 50%;
+  height: 7vh;
 }
 
 .search .material-icons{
-    padding-left: 1rem;
-    padding-right: 1rem;
-    height: 7vh;
-    line-height: 7vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 7vh;
+  line-height: 7vh;
 }
 
 
 /* add page */
 .judulpage{
-    text-align: center;
-    padding-top: 50px;
-    font-weight: bold;
-    font-size: 32px;
-    color: #2699FB;
-    margin: 0;
+  text-align: center;
+  padding-top: 50px;
+  font-weight: bold;
+  font-size: 32px;
+  color: #2699FB;
+  margin: 0;
 
 }
 
 .row .col.s6{
-    width: 100%;
+  width: 100%;
 }
 
 /* table page */
 .judultable{
-    text-align: center;
-    padding: 40px 0;
-    font-weight: bold;
-    font-size: 32px;
-    margin: 0;
+  text-align: center;
+  padding: 40px 0;
+  font-weight: bold;
+  font-size: 32px;
+  margin: 0;
 }
 
 table thead tr th, table tbody tr td{
-    text-align: center;
+  text-align: center;
 }
 
 table thead tr th{
-    color: white;
+  color: white;
 }
 
 .rowtable{
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 100px;
 }
 
 /* pagination */
 ul.paginasi{
-    padding: 1.5rem;
-    margin: auto;
-    float: right;
+  padding: 1.5rem;
+  margin: auto;
+  float: right;
 }
 
 .pagination li.active{
-    background-color: #2699FB;
+  background-color: #2699FB;
 }
 
 /* chart page */
 .cntnr{
-    width: 90%;
+  width: 90%;
 }
 
 
 /* login */
 
 input, button{
-    font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .login{
-    width: 25%;
-    margin: 10vw auto;
-    padding: 20px;
-    height: 75vh;
+  width: 25%;
+  margin: 10vw auto;
+  padding: 20px;
+  height: 75vh;
 }
 
 .login p {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .login input{
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    width: 100%;
-    padding: 15px;
-    outline: none;
-   
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  width: 100%;
+  padding: 15px;
+  outline: none;
+ 
 }
 
 #email, #password{
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 /* .login input:focus{
-    border-bottom: 1px solid #999;
-    border-radius: 5px;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
+  border-bottom: 1px solid #999;
+  border-radius: 5px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
 } */
 
 
 .login button{
-    background: #2699FB;
-    color: #FFFFFF;
-    border: 1px solid #2699FB;
-    border-radius: 5px;
-    padding: 15px;
-    width: 100%;
-    display: block;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
+  background: #2699FB;
+  color: #FFFFFF;
+  border: 1px solid #2699FB;
+  border-radius: 5px;
+  padding: 15px;
+  width: 100%;
+  display: block;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
 }
 .login button:hover{
-    background: #EEEEEE;
-    color: #2699FB;
-    border: 1px solid #2699FB;
-    cursor: pointer;
+  background: #EEEEEE;
+  color: #2699FB;
+  border: 1px solid #2699FB;
+  cursor: pointer;
 }
 
 
 @media only screen and (max-width: 768px) {
-    .search{
-        width: 100%;
-    }
+  .search{
+      width: 100%;
+  }
 }
 
 .input-field input[type="search"] + .label-icon {
-    left: 0rem;
+  left: 0rem;
 }

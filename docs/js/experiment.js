@@ -73,15 +73,18 @@ const reverseString = (str) => {
 // deskripsi: document.getElementById("deskripsi").value}
 // database.ref(`/makanan/${date}`).set(data).then(console.log('kirimed'))
 // }
+// function app() {
+//     document.getElementById('kirim').addEventListener('click', kirim, false);
+// }
 
 
 const kirim = () => {
     let file = document.getElementById("file-image");
     var date = new Date().getTime();
     file = file.files[0];
-    let nameFile = `${date}-${file.name}`;
-    let kat = document.getElementById("kategori").value.split(',');
-
+    let nameFile = `${file.name}`;
+    let kat = document.getElementById("kategori").value;
+    let katId = 'kate_'+date;
     var up = storage.ref("product").child(nameFile).put(file);
     up.on('state_changed', snapshot => { }, error => { console.log(error) }, () => {
         up.snapshot.ref.getDownloadURL().then(downloadURL => {
@@ -95,7 +98,8 @@ const kirim = () => {
                 deskripsi: document.getElementById("deskripsi").value
             }
             console.log(upl)
-            database.ref(`/admin/menu/${date}`).set(upl).then(() => {
+            
+            database.ref('/admin/menu/'+kat).child(katId).set(upl).then(() => {
                 M.toast({ html: 'Upload Berhasil', classes: 'blue' })
                 window.open("/PPL4612SC", "_self");
             }) //admin/docs/index.html
@@ -109,7 +113,7 @@ src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
 //read
 //assign this to a function, so this function only can be triggered at spesific page
 const fetchData = () => {
-    database.ref("/admin/menu").on("value", (dtman) => {
+    database.ref("/admin/menu/").on("value", (dtman) => {
         let tampil = dtman.val();
         var card = document.getElementById("card-menu");
         let dataht = "";
@@ -167,7 +171,7 @@ const fetchData = () => {
 //delete
 function hapus(key, nameFile) {
 
-    database.ref("/admin/menu/" + key).on('child').remove();
+    database.ref("/admin/menu/" + key).remove();
     storage.ref("product").child(nameFile).delete();
 }
 // database.ref("/makanan").remove();
@@ -191,7 +195,7 @@ function edit(key) {
 //trigger edit data
 function tombolEdit() {
     let key = document.getElementById("editNow").innerHTML;
-    let kat = document.getElementById("kategori").value.split(',');
+    let kat = document.getElementById("kategori").value;
     database.ref(`/admin/menu/${key}`).update({
         iden: key,
         nama: document.getElementById("nama").value,

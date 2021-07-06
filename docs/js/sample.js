@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var sidenav = document.querySelectorAll('.sidenav');
-    var instancesSideNav = M.Sidenav.init(sidenav, {});
-    var modal = document.querySelectorAll('.modal');
-    var instancesModal = M.Modal.init(modal, {opacity: 0.3});
+document.addEventListener('DOMContentLoaded', function () {
+  var sidenav = document.querySelectorAll('.sidenav');
+  var instancesSideNav = M.Sidenav.init(sidenav, {});
+  var modal = document.querySelectorAll('.modal');
+  var instancesModal = M.Modal.init(modal, { opacity: 0.3 });
 });
 
 
