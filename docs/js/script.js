@@ -84,7 +84,7 @@ const kirim = () => {
                 database.ref(`/admin/menu/${date}`).set(upl).then(()=>{
                     M.toast({html: 'Upload Berhasil', classes:'blue'})
                     window.open("/PPL4612SC","_self");
-                }) //admin/docs/index.html
+                }) //PPL4612SC/docs/index.html
         })
       
     })
