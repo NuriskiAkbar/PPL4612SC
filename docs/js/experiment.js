@@ -195,7 +195,7 @@ const fetchData = () => {
                                     <p>${c}</p>
                                 </div>
                                 <div class="card-action">
-                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
+                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit('${a}', '${child}')">EDIT</a>
                                     <a disabled id="del" class="pinggir"  onclick="hapusDrink('${a}', '${f}')">DELETE</a>
                                 </div>
                             </div>
@@ -232,7 +232,7 @@ const fetchData = () => {
                                     <p>${c}</p>
                                 </div>
                                 <div class="card-action">
-                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
+                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit('${a}', '${child}')">EDIT</a>
                                     <a disabled id="del" class="pinggir"  onclick="hapusLaku('${a}', '${f}')">DELETE</a>
                                 </div>
                             </div>
@@ -268,7 +268,7 @@ const fetchData = () => {
                                     <p>${c}</p>
                                 </div>
                                 <div class="card-action">
-                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
+                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit('${a}', '${child}')">EDIT</a>
                                     <a disabled id="del" class="pinggir"  onclick="hapusBaru('${a}', '${f}')">DELETE</a>
                                 </div>
                             </div>
