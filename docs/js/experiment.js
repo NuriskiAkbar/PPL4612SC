@@ -45,7 +45,7 @@ const rupiah = (value) => {
     let keluaran = ""
     let keluaran2 = ""
     let counter = 0;
-    for (var i = 0; i < value.length; i++) {
+    for (var i = 0; i < value; i++) {
         counter++;
         if (counter == 3 && i < (value.length - 1)) {
             keluaran += value.charAt(value.length - i - 1)
@@ -84,7 +84,8 @@ const kirim = () => {
     file = file.files[0];
     let nameFile = `${file.name}`;
     let kat = document.getElementById("kategori").value;
-    let katId = 'kate_'+date;
+    let nam = document.getElementById("nama").value;
+    let katId = nam;
     var up = storage.ref("product").child(nameFile).put(file);
     up.on('state_changed', snapshot => { }, error => { console.log(error) }, () => {
         up.snapshot.ref.getDownloadURL().then(downloadURL => {
@@ -92,108 +93,73 @@ const kirim = () => {
                 urlImg: downloadURL,
                 docName: nameFile,
                 iden: date,
-                nama: document.getElementById("nama").value,
+                nama: nam,
                 harga: document.getElementById("harga").value,
                 kategori: kat,
                 deskripsi: document.getElementById("deskripsi").value
-            }
+            }   
             console.log(upl)
             
             database.ref('/admin/menu/'+kat).child(katId).set(upl).then(() => {
                 M.toast({ html: 'Upload Berhasil', classes: 'blue' })
                 window.open("/PPL4612SC", "_self");
-            }) //admin/docs/index.html || +kat+'/set/'+katId
+            }) //admin/docs/index.html
         })
 
     })
 }
 src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
 
+//validasi form
+// let jeneng = document.getElementById("nama");
+// let rego = document.getElementById("harga");
+// let kertas = document.getElementById("lembar")
+
+// kertas.addEventListener('button', (e) => {
+//     let pesan = [];
+//     if(jeneng.value === '' || jeneng.value == null){
+//         pesan.push("nama harus disi");
+//     }
+//     e.preventDefault();
+// })
+
 
 //read
 //assign this to a function, so this function only can be triggered at spesific page
 const fetchData = () => {
-    
-    let tombolFood = document.getElementById("tombol-food");
-    let tombolDrink = document.getElementById("tombol-drink");
-    tombolFood.addEventListener("click", function(){
-        
-        database.ref("/admin/menu/"+tombolFood.innerText).on("value", (dtman) => {
-            let tampil = dtman.val();
-            console.log(tampil);
-            var card = document.getElementById("card-menu");
-            let dataht = "";
-            // var kunci = document.getElementById("identitas").value = dtman.val().iden;
-            for (key in tampil) {
-                let a = tampil[key].nama;
-                let b = rupiah(tampil[key].harga);
-                let c = tampil[key].deskripsi;
-                let d = tampil[key].iden;
-                let e = tampil[key].urlImg;
-                let f = tampil[key].docName;
-                dataht += `<div class="col l4 s12 m6">
-                            <div class="card">
-                                <div class="card-image bluish">
-                                    <img src="${e}">
-                                    <span class="card-title pgn right-align">Rp. ${b}</span>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">${a}</span>
-                                    <p>${c}</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
-                                    <a id="del" class="pinggir"  onclick="hapus(${key}, '${f}')">DELETE</a>
-                                </div>
+    database.ref("/admin/menu").on("", (dtman) => {
+        // console.info(dtman.val());
+        let tampil = dtman.val();
+        var card = document.getElementById("card-menu");
+        let dataht = "";
+        // var kunci = document.getElementById("identitas").value = dtman.val().iden;
+        for (key in tampil) {
+            let a = tampil[key].nama;
+            let b = rupiah(tampil[key].harga);
+            let c = tampil[key].deskripsi;
+            let d = tampil[key].iden;
+            let e = tampil[key].urlImg;
+            let f = tampil[key].docName;
+            dataht += `<div class="col l4 s12 m6">
+                        <div class="card">
+                            <div class="card-image bluish">
+                                <img src="${e}">
+                                <span class="card-title pgn right-align">Rp. ${b}</span>
                             </div>
-                        </div>`;
-                console.log(card);
-            }
-            card.innerHTML = dataht
-        })
-    
-    })
-
-    tombolDrink.addEventListener("click", function(){
-        
-        database.ref("/admin/menu/"+tombolDrink.innerText).on("value", (dtman) => {
-            let tampil = dtman.val();
-            console.log(tampil);
-            var card = document.getElementById("card-menu");
-            let dataht = "";
-            // var kunci = document.getElementById("identitas").value = dtman.val().iden;
-            for (key in tampil) {
-                let a = tampil[key].nama;
-                let b = rupiah(tampil[key].harga);
-                let c = tampil[key].deskripsi;
-                let d = tampil[key].iden;
-                let e = tampil[key].urlImg;
-                let f = tampil[key].docName;
-                dataht += `<div class="col l4 s12 m6">
-                            <div class="card">
-                                <div class="card-image bluish">
-                                    <img src="${e}">
-                                    <span class="card-title pgn right-align">Rp. ${b}</span>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">${a}</span>
-                                    <p>${c}</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
-                                    <a id="del" class="pinggir"  onclick="hapus(${key}, '${f}')">DELETE</a>
-                                </div>
+                            <div class="card-content">
+                                <span class="card-title">${a}</span>
+                                <p>${c}</p>
                             </div>
-                        </div>`;
-                console.log(card);
-            }
-            card.innerHTML = dataht
-        })
-    
+                            <div class="card-action">
+                                <a class="waves-effect waves-light modal-trigger" href="#modal1" onclick="edit(${key})">EDIT</a>
+                                <a id="del" class="pinggir"  onclick="hapus(${key}, '${f}')">DELETE</a>
+                            </div>
+                        </div>
+                    </div>`;
+            console.log(card);
+        }
+        card.innerHTML= dataht
     })
-
-    
-    
 }
 // function tombolHapus(){
 //     swal({
@@ -220,9 +186,13 @@ const fetchData = () => {
 //delete
 function hapus(key, nameFile) {
 
-    database.ref("/admin/menu/" + key).remove();
+    database.ref("/admin/menu/" + key).on('child').remove();
     storage.ref("product").child(nameFile).delete();
 }
+// database.ref("/admin/menu").on("child_removed", (hapus) =>{
+//     const hapusData = hapus.val();
+//     console.info('data \''+ hapusData.nam + '\' berhasil di hapus')
+// })
 // database.ref("/makanan").remove();
 
 //edit data

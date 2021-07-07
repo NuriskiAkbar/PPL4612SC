@@ -59,15 +59,6 @@ nav ul a{
   margin: 10px;
 }
 
-.isi-button{
-  display: flex;
-}
-
-.isi-button .tombol{
-  margin: 0 auto 10px auto;
-  text-transform: none;
-}
-
 /* card */
 .container90{
   width: 90%;
