@@ -131,6 +131,14 @@ nav ul a{
   line-height: 7vh;
 }
 
+.isi-button{
+  display: flex;
+}
+
+.isi-button .tombol{
+  margin: 0 auto 10px auto;
+  text-transform: none;
+}
 
 /* add page */
 .judulpage{
