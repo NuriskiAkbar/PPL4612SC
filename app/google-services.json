@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "110856674391",
+    "project_id": "sistemmanajemenmenu",
+    "storage_bucket": "sistemmanajemenmenu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110856674391:android:b5e3a392ca602564da9712",
+        "android_client_info": {
+          "package_name": "com.riquest.sistemmanajemenmenu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110856674391-n588c0i6r1rln8g8a1r1ldc95rdd6ran.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKbsIDrNSfSl0_EOS-lFdLJxzK3UZo0Tc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110856674391-n588c0i6r1rln8g8a1r1ldc95rdd6ran.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
